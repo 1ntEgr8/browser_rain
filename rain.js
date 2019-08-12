@@ -37,15 +37,16 @@ class Rain {
         this.rainTimer = null;
         this.containerID = containerID;
         this.container = document.getElementById(containerID);
+        this.dropGenerator = Drop.defaultDropGenerator;
     }
 
     rainSingleDrop() {
         if (this.currentNumDrops == this.numDrops) {
             return;
         }
-        let drop = new Drop(this.containerID),
-            x = Math.floor(Math.random() * this.container.clientWidth),
-            y = 0;
+        let x = Math.floor(Math.random() * this.container.clientWidth),
+            y = 0,
+            drop = new Drop(x, y, this.containerID, this.speed, this.dropGenerator);
         this.currentNumDrops++;
 
         drop.move(x, y);
