@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png">
+    <link rel="manifest" href="assets/site.webmanifest">
+    <title>Browser Rain</title>
+    <style>
+        body {
+            padding: 0;
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <div id="rain" style="height: 100vh;background: black;"></div>
+    <script src="https://cdn.jsdelivr.net/gh/1ntEgr8/browser_rain/rain.js"></script>
+    <script>
+        let rain = new Rain();
+        rain.numDrops = 150;
+        rain.dropGenerator = () => {
+            let drop = document.createElement("div");
+            drop.style.padding = 0;
+            drop.style.margin = 0;
+            drop.style.position = "absolute";
+            drop.style.fontSize = "2rem";
+            drop.style.color = `hsl(${Math.floor(Math.random() * 360)}, 100%, 50%)`;
+            drop.innerHTML = (Math.floor(Math.random() * 2)); // for binary rain
+            return drop;
+        }
+        rain.rain();
+    </script>
+</body>
+</html>
