@@ -43,7 +43,6 @@ class Rain {
         if (this.currentNumDrops == this.numDrops) {
             return;
         }
-        console.log("here")
         let drop = new Drop(this.containerID),
             x = Math.floor(Math.random() * this.container.clientWidth),
             y = 0;
