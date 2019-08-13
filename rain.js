@@ -9,7 +9,7 @@ class Drop {
     }
 
     move(x, y) {
-        this.dom.style.top = "-50px";
+        this.dom.style.top = `-50px`;
         this.dom.style.transform = `translate(${x}px, ${y}px)`;
         this.x = x;
         this.y = y;
