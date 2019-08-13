@@ -48,7 +48,7 @@ class Rain {
             y = 0,
             drop = new Drop(x, y, this.containerID, this.speed, this.dropGenerator);
         this.currentNumDrops++;
-
+        drop.dom.classList.add("drop");
         drop.move(x, y);
 
         window.requestAnimationFrame(() => this.animateDrop(drop))
@@ -77,5 +77,9 @@ class Rain {
 
     stop() {
         clearInterval(this.rainTimer);
+        let drops = document.querySelectorAll(".drop");
+        for (let drop of drops) {
+            drop.remove();
+        }
     }
 }
